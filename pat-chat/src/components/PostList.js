@@ -12,9 +12,13 @@ import {
   FormGroup,
   Label,
   Input,
+  Container,
+  Pagination,
+  PaginationItem,
+  PaginationLink,
 } from "reactstrap";
-import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function PostList() {
   const history = useHistory();
@@ -58,7 +62,7 @@ export default function PostList() {
     Axios.get("http://127.0.0.1:8000/api/")
       .then((res) => {
         console.log(res.data);
-        setPost(res.data);
+        setPost(res.data.results);
       })
       .catch((err) => {
         console.log(err);
@@ -67,11 +71,70 @@ export default function PostList() {
   }, []);
 
   return (
-    <>
-      <a>
+    // <div style={{ display: "flex" }}>
+    //   <div style={{ display: 'flex', textAlign: 'center'}}>
+    //     <ul >
+    //       <li class="nav-item">
+    //         <a class="nav-link active" href="#">
+    //           Active
+    //         </a>
+    //       </li>
+    //       <li class="nav-item">
+    //         <a class="nav-link" href="#">
+    //           Link
+    //         </a>
+    //       </li>
+    //       <li class="nav-item">
+    //         <a class="nav-link" href="#">
+    //           Link
+    //         </a>
+    //       </li>
+    //     </ul>
+    //   </div>
+    <Container
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        border: "1px solid black",
+
+        marginTop: "3rem",
+      }}
+    >
+      {/* <a>
         <FontAwesomeIcon icon={faPlusCircle} size="2x" onClick={toggle} />
-      </a>
-      <Modal isOpen={modal} toggle={toggle}>
+      </a> */}
+      <Form >
+        <FormGroup style={{ border: "1px solid #8899a6", marginTop: "1rem", }}>
+          <Label for="post-title"></Label>
+          <h1 style={{ color: "#8899a6" }}>CREATE A POST!</h1>
+          <Input
+            type="text"
+            value={postData.title}
+            name="title"
+            placeholder="Post Title"
+            onChange={handleChange}
+            style={{
+              marginTop: "1rem",
+              marginBottom: "1rem",
+              backgroundColor: "#B7BFC8",
+              width: '100%'
+            }}
+          />
+          <Label for="post-content">
+            <Input
+              type="textarea"
+              value={postData.content}
+              name="content"
+              placeholder="Content"
+              onChange={handleChange}
+              style={{ backgroundColor: "#B7BFC8", width: '30rem'}}
+            />
+          </Label>
+        </FormGroup>
+      </Form>
+      {/* <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Create Post</ModalHeader>
         <ModalBody>
           <Form>
@@ -114,7 +177,7 @@ export default function PostList() {
           </Button>
           {setPostStatus}
         </ModalFooter>
-      </Modal>
+      </Modal> */}
 
       {post.map((post) => {
         return (
@@ -128,6 +191,36 @@ export default function PostList() {
           />
         );
       })}
-    </>
+      {/* <Pagination style={{ marginTop: "1.1rem" }}>
+        <PaginationItem>
+          <PaginationLink first href="" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink previous href="#" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="/">1</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href=''>2</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">3</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">4</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">5</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink next href="#" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink last href="#" />
+        </PaginationItem>
+      </Pagination> */}
+    </Container>
+    // </div>
   );
 }

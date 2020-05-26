@@ -23,7 +23,6 @@ import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function PostDetail(props) {
-
   const history = useHistory();
 
   const [post, setPost] = React.useState({
@@ -59,24 +58,24 @@ export default function PostDetail(props) {
     setPost({ ...post, [e.target.name]: e.target.value });
   };
 
-  function updateSubmit(e) {
-    e.preventDefault();
+  function updateSubmit() {
     console.log("clicked update", post);
-    Axios.put(`http://127.0.0.1:8000/api/${postID}/`, {post})
-      .then((res) => console.log(res.data))
+    Axios.put(`http://127.0.0.1:8000/api/${postID}/`, post)
+      .then((res) => console.log(res))
       .catch((err) => {
         console.log(err);
         setPost({
           title: "",
           slug: "",
           content: "",
-          author: null,
+          author: 1,
         });
       });
-  };
+    setModel(!model);
+    // history.push("/");
+  }
 
-  function deleteSubmit (e)  {
-    e.preventDefault()
+  function deleteSubmit() {
     console.log("clicked delete");
     Axios.delete(`http://127.0.0.1:8000/api/${postID}`)
       .then((res) => {
@@ -85,9 +84,9 @@ export default function PostDetail(props) {
       .catch((err) => {
         console.log(err);
       });
-      setAlert(!alert)
-      history.push('/')
-  };
+    setAlert(!alert);
+    history.push("/");
+  }
 
   return (
     <div>

@@ -14,9 +14,9 @@ export default function Post(props) {
     <div>
       <Container>
         <Row>
-          <Col lg="6">
+          <Col >
             <a href={`/${props.id}/`}>
-              <Card style={{ marginTop: "3rem" }} body>
+              <Card style={{ marginTop: "2rem", backgroundColor: '#B7BFC8', color: '#6c7595',  }} body>
                 <CardTitle>Title: {props.title}</CardTitle>
                 <CardBody>Post: {props.content}</CardBody>
                 {/* <CardText>Slug: {post.slug}</CardText> */}
