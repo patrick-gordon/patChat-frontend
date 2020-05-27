@@ -17,8 +17,8 @@ import {
   PaginationItem,
   PaginationLink,
 } from "reactstrap";
-// import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function PostList() {
   const history = useHistory();
@@ -71,42 +71,22 @@ export default function PostList() {
   }, []);
 
   return (
-    // <div style={{ display: "flex" }}>
-    //   <div style={{ display: 'flex', textAlign: 'center'}}>
-    //     <ul >
-    //       <li class="nav-item">
-    //         <a class="nav-link active" href="#">
-    //           Active
-    //         </a>
-    //       </li>
-    //       <li class="nav-item">
-    //         <a class="nav-link" href="#">
-    //           Link
-    //         </a>
-    //       </li>
-    //       <li class="nav-item">
-    //         <a class="nav-link" href="#">
-    //           Link
-    //         </a>
-    //       </li>
-    //     </ul>
-    //   </div>
     <Container
       style={{
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        border: "1px solid black",
+        // border: "1px solid black",
 
         marginTop: "3rem",
       }}
     >
-      {/* <a>
-        <FontAwesomeIcon icon={faPlusCircle} size="2x" onClick={toggle} />
-      </a> */}
-      <Form >
-        <FormGroup style={{ border: "1px solid #8899a6", marginTop: "1rem", }}>
+      <a>
+        <FontAwesomeIcon icon={faPlusCircle} size="2x" onClick={toggle} color='#FFF'/>
+      </a>
+      {/* <Form >
+        <FormGroup style={{ marginTop: ".4rem", }}>
           <Label for="post-title"></Label>
           <h1 style={{ color: "#8899a6" }}>CREATE A POST!</h1>
           <Input
@@ -118,7 +98,7 @@ export default function PostList() {
             style={{
               marginTop: "1rem",
               marginBottom: "1rem",
-              backgroundColor: "#B7BFC8",
+              backgroundColor: "#15202b",
               width: '100%'
             }}
           />
@@ -129,12 +109,13 @@ export default function PostList() {
               name="content"
               placeholder="Content"
               onChange={handleChange}
-              style={{ backgroundColor: "#B7BFC8", width: '30rem'}}
+              style={{ backgroundColor: "#15202b", width: '30rem'}}
             />
+          <Button onClick={handleSubmit} color="success" style={{marginTop: '5px', width: '4rem'}}>Post</Button>
           </Label>
-        </FormGroup>
-      </Form>
-      {/* <Modal isOpen={modal} toggle={toggle}>
+        </FormGroup> 
+       </Form> */}
+      <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Create Post</ModalHeader>
         <ModalBody>
           <Form>
@@ -177,7 +158,7 @@ export default function PostList() {
           </Button>
           {setPostStatus}
         </ModalFooter>
-      </Modal> */}
+      </Modal>
 
       {post.map((post) => {
         return (
