@@ -83,7 +83,7 @@ export default function PostList() {
       }}
     >
       <a>
-        <FontAwesomeIcon icon={faPlusCircle} size="2x" onClick={toggle} color='#FFF'/>
+        <FontAwesomeIcon icon={faPlusCircle} size="2x" onClick={toggle} color='#49E20E'/>
       </a>
       {/* <Form >
         <FormGroup style={{ marginTop: ".4rem", }}>

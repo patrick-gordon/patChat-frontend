@@ -38,7 +38,7 @@ function App() {
             top: 0,
             left: 0,
             width: "100%",
-            height: "100%",
+            height: "98%",
             backgroundColor: '#15202b',
             border: '1px solid black',
             marginTop: '3rem'
