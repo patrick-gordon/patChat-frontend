@@ -55,8 +55,8 @@ function App() {
             }}
           >
             {/* You can render <Route> and <NavTabs /> here */}
-            <Route exact path='/' component={PostList} />
-            <Route exact path="/home" component={Landing} />
+            <Route exact path='/' component={Landing} />
+            <Route exact path="/list" component={PostList} />
             <Route exact path="/:postID/" component={PostDetail} />
           </div>
         </div>
