@@ -4,7 +4,8 @@ import "./App.css";
 import ParticleComponent from "./components/Particle";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-
+import Register from './components/Auth/Register'
+import Login from './components/Auth/Login'
 import PostList from "./components/PostList";
 import AppNav from "./components/AppNav";
 import "./App.css";
@@ -58,6 +59,9 @@ function App() {
             <Route exact path='/' component={Landing} />
             <Route exact path="/list" component={PostList} />
             <Route exact path="/:postID/" component={PostDetail} />
+            <Route path='/register' component={Register} />
+            <Route path='/login' component={Login} />
+
           </div>
         </div>
       </Router>

@@ -14,8 +14,8 @@ export default function Landing() {
           to login.
         </p>
         <p className="lead">
-          <Button color="primary" style={{marginTop: '.5rem'}}>Login</Button>
-          <Button color="primary" style={{marginTop: '.5rem', marginLeft: '5rem'}}>Register</Button>
+          <Button color="primary" style={{marginTop: '.5rem'}} href='/login'>Login</Button>
+          <Button color="primary" style={{marginTop: '.5rem', marginLeft: '5rem'}} href='/register'>Register</Button>
         </p>
       </Jumbotron>
     </Container>
